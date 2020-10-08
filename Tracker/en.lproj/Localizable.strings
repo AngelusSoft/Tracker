@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  Tracker
+
+  Created by Michal Miko on 04/10/2020.
+  
+*/
+
+
+"list_activity_title" = "Your Activity";
+"add_new_activity_title" = "Add new activity";
+"add_new_activity_name" = "Type of activity";
+"add_new_activity_location" = "Location";
+"add_new_activity_date" = "Date";
+"add_new_activity_duration" = "Duration";
+"add_new_activity_saving_type" = "Save to";
+"add_new_discard_changes" = "Discard changes";
+"add_new_discard_cancel" = "Cancel";
+"add_new_save" = "Save activity";
+"list_filter_all" = "All";
+"list_filter_local" = "Local storage";
+"list_filter_remote" = "Cloud storage";
+"add_new_activity_validation_error_empty" = "You need type something";
+"add_new_activity_saved" = "Activity Saved";
