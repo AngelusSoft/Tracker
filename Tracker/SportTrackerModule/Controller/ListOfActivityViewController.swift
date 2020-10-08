@@ -18,6 +18,8 @@ class ListOfActivityViewController: UIViewController {
     
     let collectionView: UICollectionView = {
        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         layout.estimatedItemSize = CGSize(width: 100, height: 50)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemBackground
@@ -29,6 +31,8 @@ class ListOfActivityViewController: UIViewController {
     enum StaticStrings {
         static let title = "list_activity_title"
     }
+    
+    var lastCellSize: CGSize = .zero
     
     var bottomView: BottomView?
     private var cnsButtonOutside: NSLayoutConstraint?
@@ -115,9 +119,15 @@ extension ListOfActivityViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch UIDevice.current.orientation {
         case .landscapeLeft, .landscapeRight:
-            return CGSize(width: collectionView.frame.width / 2 - 10, height: 100)
+            let size = CGSize(width: collectionView.frame.width / 2 - 10, height: 100)
+            lastCellSize = size
+            return size
+        case .unknown:
+            return lastCellSize ?? CGSize(width: collectionView.frame.width - 10, height: 100)
         default:
-            return CGSize(width: collectionView.frame.width, height: 100)
+            let size = CGSize(width: collectionView.frame.width - 10, height: 100)
+            lastCellSize = size
+            return size
         }
     }
     
