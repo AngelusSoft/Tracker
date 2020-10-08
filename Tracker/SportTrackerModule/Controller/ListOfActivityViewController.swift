@@ -59,7 +59,6 @@ class ListOfActivityViewController: UIViewController {
     }
     
     func fetchActivities() {
-        waitForData()
         interactor?.fetchActivities()
     }
     
